@@ -1,0 +1,4 @@
+[plugin]
+description = "User permission restrictions for dokku"
+version = "0.1.0"
+[plugin.config]

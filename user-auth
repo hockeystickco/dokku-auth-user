@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -eo pipefail; [[ $DOKKU_TRACE ]] && set -x
+
+SSH_USER=$1
+SSH_NAME=$2
+DOKKU_COMMAND=$3
+
+[[ $SSH_NAME == default ]] && exit 0
+
+case $DOKKU_COMMAND in
+  apps:help|apps:list|apps:report|config|config:*|enter|help|logs|ls|ps|ps:*|run|version)
+  exit 0
+  ;;
+esac
+
+exit 1
