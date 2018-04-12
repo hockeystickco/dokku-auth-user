@@ -5,12 +5,14 @@ SSH_USER=$1
 SSH_NAME=$2
 DOKKU_COMMAND=$3
 
-[[ $SSH_NAME == default ]] && exit 0
+if [[ $SSH_USER == dokku && $SSH_NAME == *-deploy ]]
+then
+  case $DOKKU_COMMAND in
+    apps:destroy|apps:rename|apps:clone|certs:*|docker-options:*|domains:*|events:*|nginx:*|proxy:*|shell|ssh-keys:*|storage:*|tags:*|tar:*)
+    echo "Permission Denied: Please contact operation adminis."
+    exit 1
+    ;;
+  esac
+fi
 
-case $DOKKU_COMMAND in
-  apps:help|apps:list|apps:report|config|config:*|enter|help|logs|ls|ps|ps:*|run|version|git-*)
-  exit 0
-  ;;
-esac
-
-exit 1
+exit 0
