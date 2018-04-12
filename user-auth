@@ -8,7 +8,7 @@ DOKKU_COMMAND=$3
 [[ $SSH_NAME == default ]] && exit 0
 
 case $DOKKU_COMMAND in
-  apps:help|apps:list|apps:report|config|config:*|enter|help|logs|ls|ps|ps:*|run|version)
+  apps:help|apps:list|apps:report|config|config:*|enter|help|logs|ls|ps|ps:*|run|version|git-*)
   exit 0
   ;;
 esac
