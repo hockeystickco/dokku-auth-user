@@ -6,5 +6,5 @@ Dokku User Auth is a plugin for [Dokku](https://github.com/progrium/dokku) that 
 
 ```sh
 # dokku 0.4+
-$ dokku plugin:install https://github.com/hockeystickco/dokku-auth-user.git
+$ dokku plugin:install https://github.com/hockeystickco/dokku-user-auth.git
 ```
